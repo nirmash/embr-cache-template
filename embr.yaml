@@ -8,7 +8,7 @@ run:
 
 cache:
   enabled: true
-  mode: "embedded"
+  mode: "managed"
   maxMemory: 128
   evictionPolicy: "allkeys-lru"
 
