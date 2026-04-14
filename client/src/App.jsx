@@ -150,7 +150,7 @@ function CacheExplorer() {
   };
 
   return (
-    <div className="panel" style={{ gridColumn: '1 / -1' }}>
+    <div className="panel">
       <h2>Cache Explorer <span className="badge">GET / SETEX / TTL</span></h2>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
@@ -229,11 +229,11 @@ export default function App() {
         <Counters />
       </div>
 
-      <CacheExplorer />
-
-      <CronJobs />
-
-      <RedisCli />
+      <div className="full-panels">
+        <CacheExplorer />
+        <CronJobs />
+        <RedisCli />
+      </div>
     </div>
   );
 }

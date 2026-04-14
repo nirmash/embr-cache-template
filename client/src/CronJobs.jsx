@@ -95,7 +95,7 @@ export default function CronJobs() {
   };
 
   return (
-    <div className="panel" style={{ gridColumn: '1 / -1' }}>
+    <div className="panel">
       <h2>Cron Engine <span className="badge">TTL Triggers</span></h2>
 
       <div className="cron-create-form">

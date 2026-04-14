@@ -76,7 +76,7 @@ export default function RedisCli() {
   };
 
   return (
-    <div className="panel" style={{ gridColumn: '1 / -1' }}>
+    <div className="panel">
       <h2>Redis CLI <span className="badge">Interactive</span></h2>
 
       <div className="redis-cli-terminal" onClick={() => inputRef.current?.focus()}>

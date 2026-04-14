@@ -20,6 +20,8 @@ input,textarea,select{font-family:inherit;font-size:inherit}
 .panels{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
 @media(max-width:768px){.panels{grid-template-columns:1fr}}
 
+.full-panels{display:flex;flex-direction:column;gap:24px}
+
 .panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
 .panel h2{font-size:18px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
 .panel h2 .badge{font-size:12px;font-weight:400;color:var(--text2);background:var(--surface2);padding:2px 8px;border-radius:8px}
