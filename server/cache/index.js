@@ -1,8 +1,21 @@
 const Redis = require('ioredis');
 
-const redis = new Redis(process.env.REDIS_URL || 'redis://127.0.0.1:6379');
+const redisUrl = process.env.REDIS_URL || 'redis://127.0.0.1:6379';
 
+const redis = new Redis(redisUrl);
 redis.on('error', (err) => console.error('Redis error:', err.message));
+
+// Dedicated subscriber connection for keyspace notifications
+const redisSub = new Redis(redisUrl);
+redisSub.on('error', (err) => console.error('Redis sub error:', err.message));
+
+async function enableKeyspaceNotifications() {
+  try {
+    await redis.config('SET', 'notify-keyspace-events', 'Ex');
+  } catch (err) {
+    console.warn('Could not enable keyspace notifications (may need server config):', err.message);
+  }
+}
 
 const DEMO_PLAYERS = [
   { name: 'Aria', score: 9450 },
@@ -36,4 +49,4 @@ async function seedDemoData() {
   }
 }
 
-module.exports = { redis, seedDemoData };
+module.exports = { redis, redisSub, seedDemoData, enableKeyspaceNotifications };

@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import CronJobs from './CronJobs';
+import RedisCli from './RedisCli';
 
 function formatCounter(name) {
   return name.replace(/_/g, ' ');
@@ -228,6 +230,10 @@ export default function App() {
       </div>
 
       <CacheExplorer />
+
+      <CronJobs />
+
+      <RedisCli />
     </div>
   );
 }
