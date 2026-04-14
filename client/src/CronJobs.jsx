@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
 const PRESETS = [
+  { label: 'Every second', value: '* * * * * *' },
+  { label: 'Every 5 sec', value: '*/5 * * * * *' },
+  { label: 'Every 30 sec', value: '*/30 * * * * *' },
   { label: 'Every minute', value: '* * * * *' },
   { label: 'Every 5 min', value: '*/5 * * * *' },
-  { label: 'Every 15 min', value: '*/15 * * * *' },
   { label: 'Hourly', value: '0 * * * *' },
   { label: 'Daily midnight', value: '0 0 * * *' },
   { label: 'Custom', value: '' },
@@ -121,7 +123,7 @@ export default function CronJobs() {
         </div>
         {error && <div style={{ color: 'var(--danger)', fontSize: 13, marginTop: 4 }}>{error}</div>}
         <div style={{ fontSize: 11, color: 'var(--text2)', marginTop: 4 }}>
-          Format: minute hour day-of-month month day-of-week &nbsp;|&nbsp; Supports: *, ranges (1-5), steps (*/5), lists (1,3,5)
+          5 fields: min hr dom mon dow &nbsp;|&nbsp; 6 fields: sec min hr dom mon dow &nbsp;|&nbsp; Supports: *, ranges (1-5), steps (*/5), lists (1,3,5)
         </div>
       </div>
 
