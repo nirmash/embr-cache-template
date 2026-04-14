@@ -20,7 +20,7 @@ async function executeJob(jobId) {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 30000);
       try {
-        const res = await fetch(job.action, { signal: controller.signal });
+        const res = await fetch(job.action, { method: 'PUT', signal: controller.signal });
         output = `HTTP ${res.status} ${res.statusText}`;
         success = res.ok;
       } finally {
