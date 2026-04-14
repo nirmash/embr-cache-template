@@ -22,6 +22,11 @@ export default function RedisCli() {
     setHistory(prev => [...prev, { type: 'cmd', text: cmd }]);
     setInput('');
 
+    if (cmd.toLowerCase() === 'clear') {
+      setHistory([]);
+      return;
+    }
+
     try {
       const res = await fetch('/api/redis-cli', {
         method: 'POST',
@@ -82,7 +87,7 @@ export default function RedisCli() {
       <div className="redis-cli-terminal" onClick={() => inputRef.current?.focus()}>
         <div className="redis-cli-output">
           {history.length === 0 && (
-            <div className="redis-cli-hint">Type a Redis command and press Enter. Try: PING, KEYS *, INFO server</div>
+            <div className="redis-cli-hint">Type a Redis command and press Enter. Try: PING, KEYS *, INFO server, CLEAR</div>
           )}
           {history.map((entry, i) => (
             <div key={i} className={'redis-cli-line ' + entry.type}>
